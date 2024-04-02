@@ -1,25 +1,36 @@
 package kadai_020;
+import java.util.HashMap; 
 
 public class Dictionary_Chapter21 {
+
+public void referer (String[] word) { //メソッド
 	
-	public static void main(String[] args) {
-
-
-	      String[] word = new String[] {"apple", "banana", "grape", "orange" }; //配列を格納 調べたい単語を格納（要素）
-
-	      DictionaryExec_Chapter21 dictionary = new DictionaryExec_Chapter21(); //辞書クラスを使用するための、準備（newを入れる）
-	                                                                             //他のクラスを使う時は必要
-	      dictionary.referer(word);  //オブジェクトを作らないといけない（オブジェクト.メソッド(単語を渡している引数);)
-	      
-	      
-	     //意味を知らべて出すやつを作る
-	      //調べたい単語を作る、日本語はいらない
-	      //配列を作る「apple等」
-	      //HashMap 二つキーワードで使用する。自分で設定したいとき。
-	     
-	   
-	        }
-
-	   
+	HashMap<String,String> dictionary = new HashMap<String,String>();
+	
+	String fruit = "";
+	
+	    dictionary.put("apple", "りんご");
+        dictionary.put("peach", "桃");
+        dictionary.put("banana", "バナナ");
+        dictionary.put("lemon", "レモン");
+        dictionary.put("pear", "梨");
+        dictionary.put("kiwi", "キウイ");
+        dictionary.put("strawberry", "いちご");
+        dictionary.put("grape", "ぶどう");
+        dictionary.put("muscat", "マスカット");
+        dictionary.put("cherry", "さくらんぼ");
+	
+	//繰り返し処理が必要（for文） 一つずつ調べていく。
+        //lengthは数（要素）取得する
+        //33行目が終わると、i++　で　24行目の０が１に変わる
+       //要素を４つ入れているから、４　要素が５つなら５になる
+    for (int i = 0; i < word.length; i++) {
+    	   fruit = dictionary.get(word[i]);
+        if(fruit == null) {
+      	  System.out.println(word[i] + "は辞書に存在しません");
+  	  } else {
+  	    	System.out.println(word[i] + "の意味は" + fruit);
+      }
+   }
+  }
 }
-
